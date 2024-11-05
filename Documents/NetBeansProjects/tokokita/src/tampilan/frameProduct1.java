@@ -43,10 +43,10 @@ public class frameProduct1 extends javax.swing.JFrame {
             
             while (data.next()) {
                 model.addRow(new Object[]{
-                data.getString("produk_id"),
-                    data.getString("produk_name"),
-                    data.getString("produk_desc"),
-                    data.getString("produk_price"),
+                data.getString("product_id"),
+                    data.getString("product_name"),
+                    data.getString("product_desc"),
+                    data.getString("product_price"),
                     data.getString("category_name"),});
                 
             }
