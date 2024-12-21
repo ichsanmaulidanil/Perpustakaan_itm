@@ -179,6 +179,6 @@ public class menuAnggota extends javax.swing.JPanel {
     private javax.swing.JButton bTambah;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tAnggota;
+    public static javax.swing.JTable tAnggota;
     // End of variables declaration//GEN-END:variables
 }

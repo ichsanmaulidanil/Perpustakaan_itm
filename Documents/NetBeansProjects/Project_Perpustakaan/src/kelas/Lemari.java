@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author FADHILA
+ * @author WINDOWS 10
  */
 public class Lemari {
     String id_lemari,lemari,rak;
@@ -97,16 +97,54 @@ public class Lemari {
 
         return newID;
     }
-
-    private static class koneksi {
-
-        public koneksi() {
-        }
-
-        private Connection konekDB() {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        }
+    
+    public ResultSet tampilLemari() {
         
+        query = "SELECT * FROM lemari ";
+        try {
+            st = konek.createStatement();            
+            rs = st.executeQuery(query);
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(null, "Data Gagal Tampil");
+        }
+        return rs;
     }
     
+    public void hapusLemari() {
+        query = "DELETE FROM lemari WHERE id_lemari = ?";
+        try {
+
+            ps = konek.prepareStatement(query);
+
+            ps.setString(1, id_lemari);
+
+            ps.executeUpdate();
+            ps.close();
+            JOptionPane.showMessageDialog(null, "Lemari Berhasil Di Hapus");
+
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(null, "Lemari Gagal Di Hapus");
+        }
+    }
+    
+    public void ubahLemari() {
+
+        query = "UPDATE lemari SET rak = ? "
+                + " WHERE id_lemari = ?";
+        try {
+
+            ps = konek.prepareStatement(query);
+
+            ps.setString(1, lemari);
+            ps.setString(2, rak);
+
+            ps.executeUpdate();
+            ps.close();
+            JOptionPane.showMessageDialog(null, "Lemari Berhasil Di Ubah");
+
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(null, "Lemari Gagal Di Ubah");
+        }
+
+    }
 }

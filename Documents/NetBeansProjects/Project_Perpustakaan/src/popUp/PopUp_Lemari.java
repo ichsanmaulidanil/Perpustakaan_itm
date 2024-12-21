@@ -8,10 +8,14 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import kelas.Lemari;
+import static popUp.PopUp_Lemari.Lb_lem;
+import static popUp.PopUp_Lemari.tLemari;
+import static popUp.PopUp_Lemari.tRak;
+
 
 /**
  *
- * @author FADHILA
+ * @author WINDOWS 10
  */
 public class PopUp_Lemari extends javax.swing.JFrame {
 
@@ -31,7 +35,7 @@ public class PopUp_Lemari extends javax.swing.JFrame {
     private void autoId() throws SQLException {
         Lemari auto = new Lemari();
         int newID = auto.autoId();
-        id_lemari.setText(String.valueOf(newID));
+        Lb_lem.setText(String.valueOf(newID));
     }
 
     /**
@@ -48,16 +52,20 @@ public class PopUp_Lemari extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         tLemari = new javax.swing.JTextField();
         tRak = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
+        bHapus = new javax.swing.JButton();
         bSimpan = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        bKembali = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        id_lemari = new javax.swing.JLabel();
+        Lb_lem = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(102, 204, 255));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Lemari");
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Rak");
 
         tLemari.addActionListener(new java.awt.event.ActionListener() {
@@ -72,13 +80,15 @@ public class PopUp_Lemari extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setText("HAPUS");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        bHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/popUp/bin.png"))); // NOI18N
+        bHapus.setText("HAPUS");
+        bHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                bHapusActionPerformed(evt);
             }
         });
 
+        bSimpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/popUp/diskette.png"))); // NOI18N
         bSimpan.setText("SIMPAN");
         bSimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,9 +96,24 @@ public class PopUp_Lemari extends javax.swing.JFrame {
             }
         });
 
-        jButton7.setText("KEMBALI");
+        bKembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/popUp/back.png"))); // NOI18N
+        bKembali.setText("KEMBALI");
+        bKembali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bKembaliActionPerformed(evt);
+            }
+        });
 
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/popUp/refresh.png"))); // NOI18N
         jButton4.setText("UBAH");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        Lb_lem.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Lb_lem.setText("LEMARI");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -97,36 +122,35 @@ public class PopUp_Lemari extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(163, 163, 163)
+                        .addContainerGap()
+                        .addComponent(Lb_lem))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(tRak, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2))
                                 .addGap(62, 62, 62)
-                                .addComponent(tLemari, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(tRak, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
+                                    .addComponent(tLemari)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(19, 19, 19)
                                 .addComponent(bSimpan)
-                                .addGap(53, 53, 53)
+                                .addGap(18, 18, 18)
                                 .addComponent(jButton4)
-                                .addGap(51, 51, 51)
-                                .addComponent(jButton6)
-                                .addGap(41, 41, 41)
-                                .addComponent(jButton7))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addComponent(id_lemari)))
-                .addContainerGap(486, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(bHapus)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                                .addComponent(bKembali)))))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(id_lemari)
-                .addGap(84, 84, 84)
+                .addContainerGap()
+                .addComponent(Lb_lem)
+                .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(tLemari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -134,13 +158,13 @@ public class PopUp_Lemari extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(tRak, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(72, 72, 72)
+                .addGap(91, 91, 91)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bSimpan)
                     .addComponent(jButton4)
-                    .addComponent(jButton7)
-                    .addComponent(jButton6))
-                .addContainerGap(1469, Short.MAX_VALUE))
+                    .addComponent(bHapus)
+                    .addComponent(bKembali))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -149,13 +173,13 @@ public class PopUp_Lemari extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 756, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 400, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -169,15 +193,21 @@ public class PopUp_Lemari extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tRakActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void bHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bHapusActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+        try {
+            Lemari lm = new Lemari();
+            lm.setId_lemari((Lb_lem.getText()));
+            lm.hapusLemari();
+        } catch (SQLException sQLException) {
+        }
+    }//GEN-LAST:event_bHapusActionPerformed
 
     private void bSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSimpanActionPerformed
         // TODO add your handling code here:
         try {
             Lemari lmr = new Lemari();
-            lmr.setId_lemari(id_lemari.getText());
+            lmr.setId_lemari(Lb_lem.getText());
             lmr.setLemari(tLemari.getText());
             lmr.setRak(tRak.getText());
             lmr.tambahLemari();
@@ -186,6 +216,25 @@ public class PopUp_Lemari extends javax.swing.JFrame {
         }
         reset();
     }//GEN-LAST:event_bSimpanActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        try {
+            Lemari lm = new Lemari();
+            PopUp_Lemari pp = new PopUp_Lemari();
+     
+            lm.setLemari(tLemari.getText());
+
+            lm.ubahLemari();
+        } catch (SQLException sQLException) {
+            
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void bKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bKembaliActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_bKembaliActionPerformed
 
     /**
      * @param args the command line arguments
@@ -214,8 +263,6 @@ public class PopUp_Lemari extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -230,15 +277,18 @@ public class PopUp_Lemari extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JLabel Lb_lem;
+    private javax.swing.JButton bHapus;
+    private javax.swing.JButton bKembali;
     private javax.swing.JButton bSimpan;
-    private javax.swing.JLabel id_lemari;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     public static javax.swing.JTextField tLemari;
     public static javax.swing.JTextField tRak;
     // End of variables declaration//GEN-END:variables
+
+
+    
 }

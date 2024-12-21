@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.Logger; 
 import javax.swing.table.DefaultTableModel;
 import kelas.Peminjaman;
 import popUp.PopUp_Peminjaman;
@@ -103,7 +103,7 @@ public class menuPeminjaman extends javax.swing.JPanel {
 
         setLayout(new java.awt.CardLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 0));
+        jPanel1.setBackground(new java.awt.Color(51, 102, 255));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu/add.png"))); // NOI18N
         jButton1.setText("TAMBAH");
@@ -214,6 +214,6 @@ public class menuPeminjaman extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tPeminjaman;
+    public static javax.swing.JTable tPeminjaman;
     // End of variables declaration//GEN-END:variables
 }

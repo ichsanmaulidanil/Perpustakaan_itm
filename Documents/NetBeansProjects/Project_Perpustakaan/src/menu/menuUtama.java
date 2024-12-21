@@ -199,34 +199,44 @@ public class menuUtama extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDashboardActionPerformed
-        // TODO add your handling code here:
-        pnUtama.removeAll();
-        pnUtama.add(new Dashboard());
-        pnUtama.repaint();
-        pnUtama.revalidate();
-                
-    }//GEN-LAST:event_bDashboardActionPerformed
-
     private void bAnggotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAnggotaActionPerformed
         // TODO add your handling code here:
+        pnUtama.removeAll();
+        pnUtama.add(new menuAnggota());
+        pnUtama.repaint();
+        pnUtama.revalidate();
     }//GEN-LAST:event_bAnggotaActionPerformed
 
     private void bLemariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLemariActionPerformed
         // TODO add your handling code here:
+        pnUtama.removeAll();
+        pnUtama.add(new menuLemari());
+        pnUtama.repaint();
+        pnUtama.revalidate();
     }//GEN-LAST:event_bLemariActionPerformed
 
     private void bKategoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bKategoriActionPerformed
         // TODO add your handling code here:
+        pnUtama.removeAll();
+        pnUtama.add(new menuKategori());
+        pnUtama.repaint();
+        pnUtama.revalidate();
     }//GEN-LAST:event_bKategoriActionPerformed
 
     private void bStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bStaffActionPerformed
         // TODO add your handling code here:
-  
+        pnUtama.removeAll();
+        pnUtama.add(new menuStaff());
+        pnUtama.repaint();
+        pnUtama.revalidate();
     }//GEN-LAST:event_bStaffActionPerformed
 
     private void bItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bItemActionPerformed
         // TODO add your handling code here:
+        pnUtama.removeAll();
+        pnUtama.add(new menuItem());
+        pnUtama.repaint();
+        pnUtama.revalidate();
     }//GEN-LAST:event_bItemActionPerformed
 
     private void bPeminjamanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPeminjamanActionPerformed
@@ -240,6 +250,14 @@ public class menuUtama extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void bDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDashboardActionPerformed
+        // TODO add your handling code here:
+        pnUtama.removeAll();
+        pnUtama.add(new Dashboard());
+        pnUtama.repaint();
+        pnUtama.revalidate();
+    }//GEN-LAST:event_bDashboardActionPerformed
 
     /**
      * @param args the command line arguments
