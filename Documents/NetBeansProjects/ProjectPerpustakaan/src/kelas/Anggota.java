@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  *
  * @author WINDOWS 10
  */
-
+//koneksi 
 public class Anggota {
     int idAnggota;
     String nama,alamat,noHp,email,nimNidn;
