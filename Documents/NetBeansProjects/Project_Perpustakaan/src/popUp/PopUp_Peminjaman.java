@@ -83,11 +83,11 @@ public class PopUp_Peminjaman extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        tKembali = new com.toedter.calendar.JDateChooser();
+        tKembali = new org.netbeans.modules.form.InvalidComponent();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         bHapus = new javax.swing.JButton();
-        tPinjam = new com.toedter.calendar.JDateChooser();
+        tPinjam = new org.netbeans.modules.form.InvalidComponent();
         tNimNidn = new javax.swing.JTextField();
         id_peminjaman = new javax.swing.JLabel();
         tStatus = new javax.swing.JComboBox<>();
@@ -206,7 +206,7 @@ public class PopUp_Peminjaman extends javax.swing.JFrame {
                         .addComponent(buubah)
                         .addGap(18, 18, 18)
                         .addComponent(bHapus)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE)
                         .addComponent(jButton3)))
                 .addContainerGap(39, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -419,12 +419,12 @@ public class PopUp_Peminjaman extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     public static javax.swing.JTextField tJudul;
     public static javax.swing.JTextField tJumlahPinjam;
-    public static com.toedter.calendar.JDateChooser tKembali;
+    private org.netbeans.modules.form.InvalidComponent tKembali;
     public static javax.swing.JTextField tKode;
     public static javax.swing.JTextField tNamaBarang;
     public static javax.swing.JTextField tNamaPeminjam;
     public static javax.swing.JTextField tNimNidn;
-    public static com.toedter.calendar.JDateChooser tPinjam;
+    private org.netbeans.modules.form.InvalidComponent tPinjam;
     public static javax.swing.JComboBox<String> tStatus;
     // End of variables declaration//GEN-END:variables
 }

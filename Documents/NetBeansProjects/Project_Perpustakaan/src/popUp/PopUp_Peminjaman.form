@@ -77,7 +77,7 @@
                           <Component id="buubah" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="bHapus" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="100" max="32767" attributes="0"/>
+                          <EmptySpace pref="166" max="32767" attributes="0"/>
                           <Component id="jButton3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -270,7 +270,7 @@
             <Property name="text" type="java.lang.String" value="Judul"/>
           </Properties>
         </Component>
-        <Component class="com.toedter.calendar.JDateChooser" name="tKembali">
+        <Component class="org.netbeans.modules.form.InvalidComponent" name="tKembali">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
           </AuxValues>
@@ -302,7 +302,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bHapusActionPerformed"/>
           </Events>
         </Component>
-        <Component class="com.toedter.calendar.JDateChooser" name="tPinjam">
+        <Component class="org.netbeans.modules.form.InvalidComponent" name="tPinjam">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
           </AuxValues>
