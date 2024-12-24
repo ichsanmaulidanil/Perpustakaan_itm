@@ -118,7 +118,9 @@ public class PopUp_Anggota extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setText("NIM / NIDN");
 
+        lb_Id.setBackground(new java.awt.Color(102, 204, 255));
         lb_Id.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lb_Id.setForeground(new java.awt.Color(102, 204, 255));
         lb_Id.setText("ANGGOTA");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -220,7 +222,12 @@ public class PopUp_Anggota extends javax.swing.JFrame {
         try {
             Anggota ang = new Anggota();
             ang.setIdAnggota(Integer.parseInt(lb_Id.getText()));
-            ang.setNama(tNama.getText());
+            if (tNama.getText().isEmpty()) {
+                ang.setNama(null);
+            } else{
+                ang.setNama(tNama.getText());
+            }
+            
             ang.setAlamat(tAlamat.getText());
             ang.setNoHp(tNoHp.getText());
             ang.setEmail(tEmail.getText());

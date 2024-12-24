@@ -236,14 +236,20 @@ public class Peminjaman {
     
     public void ubahPeminjaman() {
 
-        query = "UPDATE peminjam SET nama_peminjam = ? "
-                + " WHERE id_peminjam = ?";
+        query = "UPDATE peminjam SET tanggal_pinjam = ?, tanggal_kembali = ?, nim_nidn = ?, nama_peminjam = ?, kode_barang = ?, nama_barang = ?, judul = ?, jumlah_pinjam = ? WHERE id_peminjam = ?";
         try {
 
             ps = konek.prepareStatement(query);
 
-            ps.setString(1, namaPeminjam);
-            ps.setInt(2, idPeminjam);
+            ps.setInt(1, idPeminjam);
+            ps.setDate(2, tanggalPinjam);
+            ps.setDate(3, tanggalKembali);
+            ps.setString(4, nimNidn);
+            ps.setString(5, namaPeminjam);
+            ps.setString(6, kodeBarang);
+            ps.setString(7, namaBarang);
+            ps.setString(8, judul);
+            ps.setInt(9, jumlahPinjam);
 
             ps.executeUpdate();
             ps.close();

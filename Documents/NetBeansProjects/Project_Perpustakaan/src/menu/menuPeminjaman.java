@@ -15,6 +15,8 @@ import popUp.PopUp_Peminjaman;
 import static popUp.PopUp_Peminjaman.id_peminjaman;
 import static popUp.PopUp_Peminjaman.tJudul;
 import static popUp.PopUp_Peminjaman.tJumlahPinjam;
+import static popUp.PopUp_Peminjaman.tKembali;
+import static popUp.PopUp_Peminjaman.tPinjam;
 import static popUp.PopUp_Peminjaman.tKode;
 import static popUp.PopUp_Peminjaman.tNamaBarang;
 import static popUp.PopUp_Peminjaman.tNamaPeminjam;
@@ -198,7 +200,7 @@ public class menuPeminjaman extends javax.swing.JPanel {
             tNamaBarang.setText(nama_barang);
             tJudul.setText(judul);
             tJumlahPinjam.setText(jumlah_pinjam);
-//            PopUp_Peminjaman.tStatus.setSelectedItem(status);
+//          tStatus.setSelectedItem(status);
             
             pinjam.setVisible(true);
             

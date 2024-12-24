@@ -4,10 +4,15 @@
  */
 package menu;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+import kelas.Lemari;
 import popUp.PopUp_Lemari;
+import static popUp.PopUp_Lemari.Lb_lem;
+import static popUp.PopUp_Lemari.tRak;
 
 /**
  *
@@ -20,6 +25,30 @@ public class menuLemari extends javax.swing.JPanel {
      */
     public menuLemari() {
         initComponents();
+        loadTable();
+    }
+    
+    void loadTable() {
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("id lemari");
+        model.addColumn("lemari");
+        model.addColumn("rak");
+        
+        try {
+            Lemari lm = new Lemari();
+            ResultSet data = lm.tampilLemari();
+                       while (data.next()) {
+                model.addRow(new Object[]{
+                    data.getInt("id_lemari"),
+                    data.getString("lemari"),
+                    data.getString("rak"),});
+                    
+                       }
+
+
+        } catch (SQLException sQLException) {
+        }
+        tLemari.setModel(model);
     }
 
     /**
@@ -32,7 +61,7 @@ public class menuLemari extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        bTambah = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tLemari = new javax.swing.JTable();
 
@@ -40,10 +69,10 @@ public class menuLemari extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(51, 102, 255));
 
-        jButton1.setText("TAMBAH");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        bTambah.setText("TAMBAH");
+        bTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                bTambahActionPerformed(evt);
             }
         });
 
@@ -58,6 +87,11 @@ public class menuLemari extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tLemari.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tLemariMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tLemari);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -67,7 +101,7 @@ public class menuLemari extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(65, 65, 65)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
+                    .addComponent(bTambah)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1030, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(271, Short.MAX_VALUE))
         );
@@ -75,7 +109,7 @@ public class menuLemari extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addComponent(jButton1)
+                .addComponent(bTambah)
                 .addGap(53, 53, 53)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(6076, Short.MAX_VALUE))
@@ -84,7 +118,7 @@ public class menuLemari extends javax.swing.JPanel {
         add(jPanel1, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void bTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTambahActionPerformed
         try {
             // TODO add your handling code here:
             PopUp_Lemari pp = new PopUp_Lemari();
@@ -92,11 +126,35 @@ public class menuLemari extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(menuLemari.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_bTambahActionPerformed
+
+    private void tLemariMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tLemariMouseClicked
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            int baris = tLemari.rowAtPoint(evt.getPoint());
+            String id_lemari = tLemari.getValueAt(baris, 0).toString();
+            String lemari = tLemari.getValueAt(baris, 1).toString();
+            String rak = tLemari.getValueAt(baris, 2).toString();
+           
+            PopUp_Lemari Lemari = new PopUp_Lemari();
+            
+            Lb_lem.setText(id_lemari);
+            
+            tLemari.setToolTipText(lemari);
+            tRak.setText(rak);
+
+            
+             Lemari.setVisible(true);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(menuLemari.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_tLemariMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton bTambah;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JTable tLemari;

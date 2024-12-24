@@ -106,7 +106,7 @@ public class Anggota {
         int newID = 1;
 
         try {
-            String query = "SELECT MAX(ID_Anggota) AS max_id FROM anggota";
+            query = "SELECT MAX(ID_Anggota) AS max_id FROM anggota";
             Statement st = konek.createStatement();
             ResultSet rs = st.executeQuery(query);
 

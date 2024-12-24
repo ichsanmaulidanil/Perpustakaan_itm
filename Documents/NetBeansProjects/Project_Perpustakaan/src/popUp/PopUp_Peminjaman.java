@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import kelas.Peminjaman;
+import java.sql.Date;
 import static popUp.PopUp_Peminjaman.id_peminjaman;
 import static popUp.PopUp_Peminjaman.tPinjam;
 import static popUp.PopUp_Peminjaman.tKembali;
@@ -35,9 +36,9 @@ public class PopUp_Peminjaman extends javax.swing.JFrame {
         autoId();
         reset();
     }
-    
+
     void reset() {
-        
+
         tPinjam.setDate(null);
         tKembali.setDate(null);
         tNimNidn.setText(null);
@@ -48,15 +49,12 @@ public class PopUp_Peminjaman extends javax.swing.JFrame {
         tJumlahPinjam.setText(null);
         tStatus.setSelectedItem(null);
     }
-    
+
     private void autoId() throws SQLException {
         Peminjaman auto = new Peminjaman();
         int newid = auto.autoId();
         id_peminjaman.setText(String.valueOf(newid));
     }
-    
-    
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -294,13 +292,13 @@ public class PopUp_Peminjaman extends javax.swing.JFrame {
     }//GEN-LAST:event_tKodeActionPerformed
 
     private void bHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bHapusActionPerformed
-      try {
+        try {
             Peminjaman cty = new Peminjaman();
             cty.setIdPeminjam(Integer.parseInt(id_peminjaman.getText()));
             cty.hapusPeminjaman();
         } catch (SQLException sQLException) {
         }
-        
+
     }//GEN-LAST:event_bHapusActionPerformed
 
     private void bSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSimpanActionPerformed
@@ -308,7 +306,7 @@ public class PopUp_Peminjaman extends javax.swing.JFrame {
         try {
             Peminjaman pj = new Peminjaman();
             pj.setIdPeminjam(Integer.parseInt(id_peminjaman.getText()));
-            
+
             java.util.Date tanggalPinjam = tPinjam.getDate();
             if (tanggalPinjam != null) {
                 java.sql.Date tanggalPinjamSQL = new java.sql.Date(tanggalPinjam.getTime());
@@ -333,17 +331,14 @@ public class PopUp_Peminjaman extends javax.swing.JFrame {
                 return;
             }
 
-            
             pj.setNimNidn(tNimNidn.getText());
             pj.setNamaPeminjam(tNamaPeminjam.getText());
             pj.setKodeBarang(tKode.getText());
             pj.setNamaBarang(tNamaBarang.getText());
             pj.setJudul(tJudul.getText());
-        //    pj.setStatus(tStatus.getSelectedItem().toString());
-            
-            
-            
-             pj.tambahPeminjaman();
+            pj.setStatus(tStatus.getSelectedItem().toString());
+
+            pj.tambahPeminjaman();
         } catch (SQLException sQLException) {
             System.out.println("Data tidak masuk");
         }
@@ -355,16 +350,29 @@ public class PopUp_Peminjaman extends javax.swing.JFrame {
     }//GEN-LAST:event_tStatusActionPerformed
 
     private void buubahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buubahActionPerformed
-        // TODO add your handling code here:
-         try {
-            Peminjaman cub = new Peminjaman();
-            cub.setIdPeminjam(Integer.parseInt(id_peminjaman.getText()));
-            cub.setNamaPeminjam(tNamaPeminjam.getText());
+        try {
+            Peminjaman pj = new Peminjaman();
+            java.util.Date tanggalKembali = tKembali.getDate();
+            if (tanggalKembali != null) {
+                java.sql.Date tanggalKembaliSQL = new java.sql.Date(tanggalKembali.getTime());
+                pj.setTanggalKembali(tanggalKembaliSQL); // Asumsi ada metode ini
+            } else {
+                System.out.println("Tanggal kembali tidak boleh kosong.");
+                return;
+            }
 
-            cub.ubahPeminjaman();
+            pj.setNimNidn(tNimNidn.getText());
+            pj.setNamaPeminjam(tNamaPeminjam.getText());
+            pj.setKodeBarang(tKode.getText());
+            pj.setNamaBarang(tNamaBarang.getText());
+            pj.setJudul(tJudul.getText());
+            pj.setStatus(tStatus.getSelectedItem().toString());
+
+            pj.ubahPeminjaman();
         } catch (SQLException sQLException) {
-            
+            System.out.println("Data tidak masuk");
         }
+        reset();
     }//GEN-LAST:event_buubahActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
